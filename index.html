@@ -1,1 +1,224 @@
-My t page
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xv6 a simple, Unix-like teaching operating system &mdash; xv6 0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="xv6 0 documentation" href="#"/>
+        <link rel="next" title="&lt;no title&gt;" href="Foreword_and_acknowledgements.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="#" class="fa fa-home"> xv6</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="Operating_system_interfaces.html">Chapter 0 Operating system interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#processes-and-memory">Processes and memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#i-o-and-file-descriptors">I/O and File descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#pipes">Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#file-system">File system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#real-world">Real world</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="The_first_process.html">Chapter 1 The first process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#process-overview">Process overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-the-first-address-space">Code: the first address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-creating-the-first-process">Code: creating the first process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-running-the-first-process">Code: Running the first process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#the-first-system-call-exec">The first system call: exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">xv6</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>xv6 a simple, Unix-like teaching operating system</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="xv6-a-simple-unix-like-teaching-operating-system">
+<h1>xv6 a simple, Unix-like teaching operating system<a class="headerlink" href="#xv6-a-simple-unix-like-teaching-operating-system" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Authers:</th><td class="field-body">Russ Cox
+Frans Kaashoek
+Robert Morris</td>
+</tr>
+<tr class="field-even field"><th class="field-name">E-mail:</th><td class="field-body"><a class="reference external" href="mailto:v6-book&#37;&#52;&#48;pdos&#46;csail&#46;mit&#46;edu">v6-book<span>&#64;</span>pdos<span>&#46;</span>csail<span>&#46;</span>mit<span>&#46;</span>edu</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">Draft as of August 28, 2012</td>
+</tr>
+</tbody>
+</table>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Operating_system_interfaces.html">Chapter 0 Operating system interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#processes-and-memory">Processes and memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#i-o-and-file-descriptors">I/O and File descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#pipes">Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#file-system">File system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#real-world">Real world</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="The_first_process.html">Chapter 1 The first process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#process-overview">Process overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-the-first-address-space">Code: the first address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-creating-the-first-process">Code: creating the first process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-running-the-first-process">Code: Running the first process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#the-first-system-call-exec">The first system call: exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Foreword_and_acknowledgements.html" class="btn btn-neutral float-right" title="&lt;no title&gt;"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, pekopeko1.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
