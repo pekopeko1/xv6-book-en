@@ -76,6 +76,18 @@
 <li class="toctree-l2"><a class="reference internal" href="The_first_process.html#exercises">Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Page_tables.html">Chapter 2 Page tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#paging-hardware">Paging hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#process-address-space">Process address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-creating-an-address-space">Code: creating an address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#physical-memory-allocation">Physical memory allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-physical-memory-allocator">Code: Physical memory allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#user-part-of-an-address-space">User part of an address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-exec">Code: exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#exercises">Exercises</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -132,8 +144,6 @@ kernel space</td>
 <p>When a process needs to invoke a kernel service, it invokes a procedure call inthe operating system interface. Such procedures are call system calls. The systemcall enters the kernel; the kernel performs the service and returns. Thus a process alternates between executing in user space and kernel space.</p>
 <p>The kernel uses the CPU’s hardware protection mechanisms to ensure that eachprocess executing in user space can access only its own memory. The kernel executeswith the hardware privileges required to implement these protections; user programsexecute without those privileges. When a user program invokes a system call, thehardware raises the privilege level and starts executing a prearranged function in thekernel.</p>
 <p>The collection of system calls that a kernel provides is the interface that user programs see. The xv6 kernel provides a subset of the services and system calls that Unixkernels traditionally oﬀer. The calls are:</p>
-<p>The rest of this chapter outlines xv6’s services—processes, memory, file descriptors, pipes, and file system—and illustrates them with code snippets and discussions ofhow the shell uses them.</p>
-<p>The shell’s use of system calls illustrates how carefully theyhave been designed.The shell is an ordinary program that reads commands from the user and executes them, and is the primary user interface to traditional Unix-like systems. The factthat the shell is a user program, not part of the kernel, illustrates the power of the system call interface: there is nothing special about the shell. It also means that the shellis easy to replace; as a result, modern Unix systems have a variety of shells to choosefrom, each with its own user interface and scripting features. The xv6 shell is a simpleimplementation of the essence of the Unix Bourne shell. Its implementation can befound at line (7850).</p>
 <div class="figure">
 <img alt="_images/F0-1.png" src="_images/F0-1.png" />
 <p class="caption">Figure 0-1. A kernel and two user processes.</p>
@@ -211,6 +221,8 @@ kernel space</td>
 </tr>
 </tbody>
 </table>
+<p>The rest of this chapter outlines xv6’s services—processes, memory, file descriptors, pipes, and file system—and illustrates them with code snippets and discussions ofhow the shell uses them.</p>
+<p>The shell’s use of system calls illustrates how carefully theyhave been designed.The shell is an ordinary program that reads commands from the user and executes them, and is the primary user interface to traditional Unix-like systems. The factthat the shell is a user program, not part of the kernel, illustrates the power of the system call interface: there is nothing special about the shell. It also means that the shellis easy to replace; as a result, modern Unix systems have a variety of shells to choosefrom, each with its own user interface and scripting features. The xv6 shell is a simpleimplementation of the essence of the Unix Bourne shell. Its implementation can befound at line (7850).</p>
 <div class="section" id="processes-and-memory">
 <h2>Processes and memory<a class="headerlink" href="#processes-and-memory" title="Permalink to this headline">¶</a></h2>
 <p>An xv6 process consists of user-space memory (instructions, data, and stack) andperprocess state private to the kernel. Xv6 provides timesharing: it transparentlyswitches the available CPUs among the set of processes waiting to execute. When aprocess is not executing, xv6 saves its CPU registers, restoring them when it next runsthe process. The kernel associates a process identifier, or pid, with each process.</p>

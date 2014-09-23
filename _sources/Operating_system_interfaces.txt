@@ -24,10 +24,6 @@ The kernel uses the CPU’s hardware protection mechanisms to ensure that eachpr
 
 The collection of system calls that a kernel provides is the interface that user programs see. The xv6 kernel provides a subset of the services and system calls that Unixkernels traditionally oﬀer. The calls are:
 
-The rest of this chapter outlines xv6’s services—processes, memory, file descriptors, pipes, and file system—and illustrates them with code snippets and discussions ofhow the shell uses them. 
-
-The shell’s use of system calls illustrates how carefully theyhave been designed.The shell is an ordinary program that reads commands from the user and executes them, and is the primary user interface to traditional Unix-like systems. The factthat the shell is a user program, not part of the kernel, illustrates the power of the system call interface: there is nothing special about the shell. It also means that the shellis easy to replace; as a result, modern Unix systems have a variety of shells to choosefrom, each with its own user interface and scripting features. The xv6 shell is a simpleimplementation of the essence of the Unix Bourne shell. Its implementation can befound at line (7850).
-
 .. figure:: F0-1.png
 
     Figure 0-1. A kernel and two user processes.
@@ -56,6 +52,10 @@ fstat(fd)                  Return info about an open file
 link(f1, f2)               Create another name (f2) for the file f1
 unlink(filename)            Remove a file
 =========================  ===========
+
+The rest of this chapter outlines xv6’s services—processes, memory, file descriptors, pipes, and file system—and illustrates them with code snippets and discussions ofhow the shell uses them. 
+
+The shell’s use of system calls illustrates how carefully theyhave been designed.The shell is an ordinary program that reads commands from the user and executes them, and is the primary user interface to traditional Unix-like systems. The factthat the shell is a user program, not part of the kernel, illustrates the power of the system call interface: there is nothing special about the shell. It also means that the shellis easy to replace; as a result, modern Unix systems have a variety of shells to choosefrom, each with its own user interface and scripting features. The xv6 shell is a simpleimplementation of the essence of the Unix Bourne shell. Its implementation can befound at line (7850).
 
 Processes and memory
 =====================
