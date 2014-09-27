@@ -39,7 +39,7 @@ getpid()                   Return current process’s id
 sleep(n)                   Sleep for n seconds
 exec(filename, \*argv)       Load a file and execute its
 brk(n)                     Grow process’s memory by n bytes
-open(filename, ﬂags)        Open a file; ﬂags indicate read/write
+open(filename, flags)        Open a file; flags indicate read/write
 read(fd, buf, n)           Read n byes from an open file into buf
 write(fd, buf, n)          Write n bytes to an open file
 close(fd)                  Release open file fd
@@ -265,7 +265,7 @@ The xv6 file system provides data files, which are uninterpreted byte arrays, an
 
 The first fragment changes the process’s current directory to /a/b; the second neitherrefers to nor modifies the process’s current directory.
 
-There are multiple system calls to create a new file or directory: mkdir creates anew directory, open with the O_CREATE ﬂag creates a new data file, and mknod createsa new device file. This example illustrates all three:
+There are multiple system calls to create a new file or directory: mkdir creates anew directory, open with the O_CREATE flag creates a new data file, and mknod createsa new device file. This example illustrates all three:
 
 .. code-block:: c
 
@@ -331,7 +331,7 @@ Unix’s combination of the ‘‘standard’’ file descriptors, pipes, and co
 
 Modern kernels provide many more system calls, and many more kinds of kernelservices, than xv6. For the most part, modern Unix-derived operating systems havenot followed the early Unix model of exposing devices as special files, like the consoledevice file discussed above. The authors of Unix went on to build Plan 9, which applied the ‘‘resources are files’’ concept to modern facilities, representing networks,graphics, and other resources as files or file trees.
 
-The file system abstraction has been a powerful idea, most recently applied tonetwork resources in the form of the World Wide Web. Even so, there are other models for operating system interfaces. Multics, a predecessor of Unix, abstracted file storage in a way that made it look like memory, producing a very different ﬂavor of interface. The complexity of the Multics design had a direct inﬂuence on the designers ofUnix, who tried to build something simpler.
+The file system abstraction has been a powerful idea, most recently applied tonetwork resources in the form of the World Wide Web. Even so, there are other models for operating system interfaces. Multics, a predecessor of Unix, abstracted file storage in a way that made it look like memory, producing a very different flavor of interface. The complexity of the Multics design had a direct influence on the designers ofUnix, who tried to build something simpler.
 
 This book examines how xv6 implements its Unix-like interface, but the ideas andconcepts apply to more than just Unix. Any operating system must multiplex processes onto the underlying hardware, isolate processes from each other, and provide mechanisms for controlled interprocess communication. After studying xv6, you should beable to look at other, more complex operating systems and see the concepts underlying xv6 in those systems as well.
 

@@ -152,4 +152,4 @@ Exercises
 1. get rid off the xchg in acquire. explain what happens when you run xv6?
 2. move the acquire in iderw to before sleep. is there a race? why don’t you observe itwhen booting xv6 and run stressfs? increase critical section with a dummy loop; whatdo you see now? explain.
 3. do posted homework question.
-4. Setting a bit in a buffer’s flags is not an atomic operation: the processor makes acopy of flags in a register, edits the register, and writes it back. Thus it is importantthat two processes are not writing to flags at the same time. xv6 edits the B_BUSY bitonly while holding buflock but edits the B_VALID and B_WRITE ﬂags without holdingany locks. Why is this safe?
+4. Setting a bit in a buffer’s flags is not an atomic operation: the processor makes acopy of flags in a register, edits the register, and writes it back. Thus it is importantthat two processes are not writing to flags at the same time. xv6 edits the B_BUSY bitonly while holding buflock but edits the B_VALID and B_WRITE flags without holdingany locks. Why is this safe?

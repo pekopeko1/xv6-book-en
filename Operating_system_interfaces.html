@@ -126,6 +126,25 @@
 <li class="toctree-l2"><a class="reference internal" href="Scheduling.html#exercises">Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="File_system.html">Chapter 6 File system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#buffer-cache-layer">Buffer cache Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-buffer-cache">Code: Buffer cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#logging-layer">Logging layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#log-design">Log design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-logging">Code: logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-block-allocator">Code: Block allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#inodes">Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-inodes">Code: Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-inode-content">Code: Inode content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-directory-layer">Code: directory layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-path-names">Code: Path names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#file-descriptor-layer">File descriptor layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-system-calls">Code: System calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#exercises">Exercises</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -221,8 +240,8 @@ kernel space</td>
 <tr class="row-odd"><td>brk(n)</td>
 <td>Grow process’s memory by n bytes</td>
 </tr>
-<tr class="row-even"><td>open(filename, ﬂags)</td>
-<td>Open a file; ﬂags indicate read/write</td>
+<tr class="row-even"><td>open(filename, flags)</td>
+<td>Open a file; flags indicate read/write</td>
 </tr>
 <tr class="row-odd"><td>read(fd, buf, n)</td>
 <td>Read n byes from an open file into buf</td>
@@ -409,7 +428,7 @@ child: exiting
 </pre></div>
 </div>
 <p>The first fragment changes the process’s current directory to /a/b; the second neitherrefers to nor modifies the process’s current directory.</p>
-<p>There are multiple system calls to create a new file or directory: mkdir creates anew directory, open with the O_CREATE ﬂag creates a new data file, and mknod createsa new device file. This example illustrates all three:</p>
+<p>There are multiple system calls to create a new file or directory: mkdir creates anew directory, open with the O_CREATE flag creates a new data file, and mknod createsa new device file. This example illustrates all three:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="n">mkdir</span><span class="p">(</span><span class="s">&quot;/dir&quot;</span><span class="p">);</span>
 <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/dir/file&quot;</span><span class="p">,</span> <span class="n">O_CREATE</span><span class="o">|</span><span class="n">O_WRONLY</span><span class="p">);</span>
 <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
@@ -453,7 +472,7 @@ child: exiting
 <h2>Real world<a class="headerlink" href="#real-world" title="Permalink to this headline">¶</a></h2>
 <p>Unix’s combination of the ‘‘standard’’ file descriptors, pipes, and convenient shellsyntax for operations on them was a major advance in writing general-purposereusable programs. The idea sparked a whole culture of ‘‘software tools’’ that was responsible for much of Unix’s power and popularity, and the shell was the first so-called‘‘scripting language.’’ The Unix system call interface persists today in systems like BSD,Linux, and Mac OS X.</p>
 <p>Modern kernels provide many more system calls, and many more kinds of kernelservices, than xv6. For the most part, modern Unix-derived operating systems havenot followed the early Unix model of exposing devices as special files, like the consoledevice file discussed above. The authors of Unix went on to build Plan 9, which applied the ‘‘resources are files’’ concept to modern facilities, representing networks,graphics, and other resources as files or file trees.</p>
-<p>The file system abstraction has been a powerful idea, most recently applied tonetwork resources in the form of the World Wide Web. Even so, there are other models for operating system interfaces. Multics, a predecessor of Unix, abstracted file storage in a way that made it look like memory, producing a very different ﬂavor of interface. The complexity of the Multics design had a direct inﬂuence on the designers ofUnix, who tried to build something simpler.</p>
+<p>The file system abstraction has been a powerful idea, most recently applied tonetwork resources in the form of the World Wide Web. Even so, there are other models for operating system interfaces. Multics, a predecessor of Unix, abstracted file storage in a way that made it look like memory, producing a very different flavor of interface. The complexity of the Multics design had a direct influence on the designers ofUnix, who tried to build something simpler.</p>
 <p>This book examines how xv6 implements its Unix-like interface, but the ideas andconcepts apply to more than just Unix. Any operating system must multiplex processes onto the underlying hardware, isolate processes from each other, and provide mechanisms for controlled interprocess communication. After studying xv6, you should beable to look at other, more complex operating systems and see the concepts underlying xv6 in those systems as well.</p>
 </div>
 </div>

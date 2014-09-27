@@ -126,6 +126,25 @@
 <li class="toctree-l2"><a class="reference internal" href="Scheduling.html#exercises">Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="File_system.html">Chapter 6 File system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#buffer-cache-layer">Buffer cache Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-buffer-cache">Code: Buffer cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#logging-layer">Logging layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#log-design">Log design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-logging">Code: logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-block-allocator">Code: Block allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#inodes">Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-inodes">Code: Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-inode-content">Code: Inode content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-directory-layer">Code: directory layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-path-names">Code: Path names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#file-descriptor-layer">File descriptor layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-system-calls">Code: System calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#exercises">Exercises</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -275,7 +294,7 @@
 <li>get rid off the xchg in acquire. explain what happens when you run xv6?</li>
 <li>move the acquire in iderw to before sleep. is there a race? why don’t you observe itwhen booting xv6 and run stressfs? increase critical section with a dummy loop; whatdo you see now? explain.</li>
 <li>do posted homework question.</li>
-<li>Setting a bit in a buffer’s flags is not an atomic operation: the processor makes acopy of flags in a register, edits the register, and writes it back. Thus it is importantthat two processes are not writing to flags at the same time. xv6 edits the B_BUSY bitonly while holding buflock but edits the B_VALID and B_WRITE ﬂags without holdingany locks. Why is this safe?</li>
+<li>Setting a bit in a buffer’s flags is not an atomic operation: the processor makes acopy of flags in a register, edits the register, and writes it back. Thus it is importantthat two processes are not writing to flags at the same time. xv6 edits the B_BUSY bitonly while holding buflock but edits the B_VALID and B_WRITE flags without holdingany locks. Why is this safe?</li>
 </ol>
 </div>
 </div>
