@@ -88,6 +88,44 @@
 <li class="toctree-l2"><a class="reference internal" href="Page_tables.html#exercises">Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Traps_interrupts_and_drivers.html">Chapter 3 Traps, interrupts, and drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#systems-calls-exceptions-and-interrupts">Systems calls, exceptions, and interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#x86-protection">X86 protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-the-first-system-call">Code: The first system call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-assembly-trap-handlers">Code: Assembly trap handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-c-trap-handler">Code: C trap handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-system-calls">Code: System calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-interrupts">Code: Interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#drivers">Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-disk-driver">Code: Disk driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Locking.html">Chapter 4 Locking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#race-conditions">Race conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#code-locks">Code: Locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#modularity-and-recursive-locks">Modularity and recursive locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#code-using-locks">Code: Using locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#lock-ordering">Lock ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#interrupt-handlers">Interrupt handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#memory-ordering">Memory ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Scheduling.html">Chapter 5 Scheduling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#multiplexing">Multiplexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-context-switching">Code: Context switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-scheduling">Code: Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#sleep-and-wakeup">Sleep and wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-sleep-and-wakeup">Code: Sleep and wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-pipes">Code: Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-wait-exit-and-kill">Code: Wait, exit, and kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#exercises">Exercises</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -138,12 +176,12 @@ kernel space</td>
 </tbody>
 </table>
 <p>The job of an operating system is to share a computer among multiple programsand to provide a more useful set of services than the hardware alone supports. Theoperating system manages and abstracts the low-level hardware, so that, for example, aword processor need not concern itself with which type of disk hardware is beingused. It also multiplexes the hardware, allowing many programs to share the computerand run (or appear to run) at the same time. Finally, operating systems provide controlled ways for programs to interact, so that they can share data or work together.</p>
-<p>An operating system provides services to user programs through an interface.Designing a good interface turns out to be diﬃcult. On the one hand, we would likethe interface to be simple and narrow because that makes it easier to get the implementation right. On the other hand, we may be tempted to oﬀer many sophisticatedfeatures to applications. The trick in resolving this tension is to design interfaces thatrely on a few mechanisms that can be combined to provide much generality.</p>
-<p>This book uses a single operating system as a concrete example to illustrate operating system concepts. That operating system, xv6, provides the basic interfaces introduced by Ken Thompson and Dennis Ritchie’s Unix operating system, as well as mimicking Unix’s internal design. Unix provides a narrow interface whose mechanismscombine well, oﬀering a surprising degree of generality. This interface has been sosuccessful that modern operating systems—BSD, Linux, Mac OS X, Solaris, and even,to a lesser extent, Microsoft Windows—have Unix-like interfaces. Understanding xv6is a good start toward understanding any of these systems and many others.</p>
+<p>An operating system provides services to user programs through an interface.Designing a good interface turns out to be difficult. On the one hand, we would likethe interface to be simple and narrow because that makes it easier to get the implementation right. On the other hand, we may be tempted to offer many sophisticatedfeatures to applications. The trick in resolving this tension is to design interfaces thatrely on a few mechanisms that can be combined to provide much generality.</p>
+<p>This book uses a single operating system as a concrete example to illustrate operating system concepts. That operating system, xv6, provides the basic interfaces introduced by Ken Thompson and Dennis Ritchie’s Unix operating system, as well as mimicking Unix’s internal design. Unix provides a narrow interface whose mechanismscombine well, offering a surprising degree of generality. This interface has been sosuccessful that modern operating systems—BSD, Linux, Mac OS X, Solaris, and even,to a lesser extent, Microsoft Windows—have Unix-like interfaces. Understanding xv6is a good start toward understanding any of these systems and many others.</p>
 <p>As shown in Figure 0-1, xv6 takes the traditional form of a kernel, a special program that provides services to running programs. Each running program, called aprocess, has memory containing instructions, data, and a stack. The instructions implement the program’s computation. The data are the variables on which the computation acts. The stack organizes the program’s procedure calls.</p>
 <p>When a process needs to invoke a kernel service, it invokes a procedure call inthe operating system interface. Such procedures are call system calls. The systemcall enters the kernel; the kernel performs the service and returns. Thus a process alternates between executing in user space and kernel space.</p>
 <p>The kernel uses the CPU’s hardware protection mechanisms to ensure that eachprocess executing in user space can access only its own memory. The kernel executeswith the hardware privileges required to implement these protections; user programsexecute without those privileges. When a user program invokes a system call, thehardware raises the privilege level and starts executing a prearranged function in thekernel.</p>
-<p>The collection of system calls that a kernel provides is the interface that user programs see. The xv6 kernel provides a subset of the services and system calls that Unixkernels traditionally oﬀer. The calls are:</p>
+<p>The collection of system calls that a kernel provides is the interface that user programs see. The xv6 kernel provides a subset of the services and system calls that Unixkernels traditionally offer. The calls are:</p>
 <div class="figure">
 <img alt="_images/F0-1.png" src="_images/F0-1.png" />
 <p class="caption">Figure 0-1. A kernel and two user processes.</p>
@@ -251,7 +289,7 @@ child: exiting
 <div class="highlight-python"><div class="highlight"><pre>parent: child 1234 is done
 </pre></div>
 </div>
-<p>Note that the parent and child were executing with diﬀerent memory and diﬀerentregisters: changing a variable in one does not aﬀect the other.</p>
+<p>Note that the parent and child were executing with different memory and differentregisters: changing a variable in one does not affect the other.</p>
 <p>The exec system call replaces the calling process’s memory with a new memoryimage loaded from a file stored in the file system. The file must have a particular format, which specifies which part of the file holds instructions, which part is data, atwhich instruction to start, etc. xv6 uses the ELF format, which Chapter 2 discusses inmore detail. When exec succeeds, it does not return to the calling program; instead,the instructions loaded from the file start executing at the entry point declared in theELF header. Exec takes two arguments: the name of the file containing the executableand an array of string arguments. For example:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
 <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;echo&quot;</span><span class="p">;</span>
@@ -267,10 +305,10 @@ child: exiting
 </div>
 <div class="section" id="i-o-and-file-descriptors">
 <h2>I/O and File descriptors<a class="headerlink" href="#i-o-and-file-descriptors" title="Permalink to this headline">¶</a></h2>
-<p>A file descriptor is a small integer representing a kernel-managed object thata process may read from or write to. A process may obtain a file descriptor by opening a file, directory, or device, or by creating a pipe, or by duplicating an existing descriptor. For simplicity we’ll often refer to the object a file descriptor refers to as a‘‘file’’; the file descriptor interface abstracts away the diﬀerences between files, pipes,and devices, making them all look like streams of bytes.</p>
+<p>A file descriptor is a small integer representing a kernel-managed object thata process may read from or write to. A process may obtain a file descriptor by opening a file, directory, or device, or by creating a pipe, or by duplicating an existing descriptor. For simplicity we’ll often refer to the object a file descriptor refers to as a‘‘file’’; the file descriptor interface abstracts away the differences between files, pipes,and devices, making them all look like streams of bytes.</p>
 <p>Internally, the xv6 kernel uses the file descriptor as an index into a perprocess table, so that every process has a private space of file descriptors starting at zero. Byconvention, a process reads from file descriptor 0 (standard input), writes output to filedescriptor 1 (standard output), and writes error messages to file descriptor 2 (standarderror). As we will see, the shell exploits the convention to implement I/O redirectionand pipelines. The shell ensures that it always has three file descriptors open (8007),which are by default file descriptors for the console.</p>
-<p>The read and write system calls read bytes from and write bytes to open filesnamed by file descriptors. The call read(fd, buf, n) reads at most n bytes from the file descriptor fd, copies them into buf, and returns the number of bytes read. Eachfile descriptor that refers to a file has an oﬀset associated with it. Read reads datafrom the current file oﬀset and then advances that oﬀset by the number of bytes read:a subsequent read will return the bytes following the ones returned by the first read.When there are no more bytes to read, read returns zero to signal the end of the file.</p>
-<p>The call write(fd, buf, n) writes n bytes from buf to the file descriptor fd andreturns the number of bytes written. Fewer than n bytes are written only when an error occurs. Like read, write writes data at the current file oﬀset and then advancesthat oﬀset by the number of bytes written: each write picks up where the previousone left oﬀ.</p>
+<p>The read and write system calls read bytes from and write bytes to open filesnamed by file descriptors. The call read(fd, buf, n) reads at most n bytes from the file descriptor fd, copies them into buf, and returns the number of bytes read. Eachfile descriptor that refers to a file has an offset associated with it. Read reads datafrom the current file offset and then advances that offset by the number of bytes read:a subsequent read will return the bytes following the ones returned by the first read.When there are no more bytes to read, read returns zero to signal the end of the file.</p>
+<p>The call write(fd, buf, n) writes n bytes from buf to the file descriptor fd andreturns the number of bytes written. Fewer than n bytes are written only when an error occurs. Like read, write writes data at the current file offset and then advancesthat offset by the number of bytes written: each write picks up where the previousone left off.</p>
 <p>The following program fragment (which forms the essence of cat) copies datafrom its standard input to its standard output. If an error occurs, it writes a messageto the standard error.</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">512</span><span class="p">];</span>
 <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
@@ -305,7 +343,7 @@ child: exiting
 </div>
 <p>After the child closes file descriptor 0, open is guaranteed to use that file descriptor forthe newly opened input.txt: 0 will be the smallest available file descriptor. Cat thenexecutes with file descriptor 0 (standard input) referring to input.txt.</p>
 <p>The code for I/O redirection in the xv6 shell works in exactly this way (7930). Recall that at this point in the code the shell has already forked the child shell and thatruncmd will call exec to load the new program. Now it should be clear why it is agood idea that fork and exec are separate calls. This separation allows the shell to fixup the child process before the child runs the intended program.</p>
-<p>Although fork copies the file descriptor table, each underlying file oﬀset is sharedbetween parent and child. Consider this example:</p>
+<p>Although fork copies the file descriptor table, each underlying file offset is sharedbetween parent and child. Consider this example:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="n">fork</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;hello &quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
   <span class="n">exit</span><span class="p">();</span>
@@ -315,19 +353,19 @@ child: exiting
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>At the end of this fragment, the file attached to file descriptor 1 will contain the datahello world. The write in the parent (which, thanks to wait, runs only after thechild is done) picks up where the child’s write left oﬀ. This behavior helps producesequential output from sequences of shell commands, like (echo hello; echo world)&gt;output.txt.</p>
-<p>The dup system call duplicates an existing file descriptor, returning a new one thatrefers to the same underlying I/O object. Both file descriptors share an oﬀset, just asthe file descriptors duplicated by fork do. This is another way to write hello worldinto a file:</p>
+<p>At the end of this fragment, the file attached to file descriptor 1 will contain the datahello world. The write in the parent (which, thanks to wait, runs only after thechild is done) picks up where the child’s write left off. This behavior helps producesequential output from sequences of shell commands, like (echo hello; echo world)&gt;output.txt.</p>
+<p>The dup system call duplicates an existing file descriptor, returning a new one thatrefers to the same underlying I/O object. Both file descriptors share an offset, just asthe file descriptors duplicated by fork do. This is another way to write hello worldinto a file:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="n">fd</span> <span class="o">=</span> <span class="n">dup</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;hello &quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
 <span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="s">&quot;world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Two file descriptors share an oﬀset if they were derived from the same originalfile descriptor by a sequence of fork and dup calls. Otherwise file descriptors do notshare oﬀsets, even if they resulted from open calls for the same file. Dup allows shellsto implement commands like this: ls existing-file non-existing-file &gt; tmp12&gt;&amp;1. The 2&gt;&amp;1 tells the shell to give the command a file descriptor 2 that is a duplicate of descriptor 1. Both the name of the existing file and the error message for thenon-existing file will show up in the file tmp1. The xv6 shell doesn’t support I/O redirection for the error file descriptor, but now you know how to implement it.</p>
+<p>Two file descriptors share an offset if they were derived from the same originalfile descriptor by a sequence of fork and dup calls. Otherwise file descriptors do notshare offsets, even if they resulted from open calls for the same file. Dup allows shellsto implement commands like this: ls existing-file non-existing-file &gt; tmp12&gt;&amp;1. The 2&gt;&amp;1 tells the shell to give the command a file descriptor 2 that is a duplicate of descriptor 1. Both the name of the existing file and the error message for thenon-existing file will show up in the file tmp1. The xv6 shell doesn’t support I/O redirection for the error file descriptor, but now you know how to implement it.</p>
 <p>File descriptors are a powerful abstraction, because they hide the details of whatthey are connected to: a process writing to file descriptor 1 may be writing to a file, toa device like the console, or to a pipe.</p>
 </div>
 <div class="section" id="pipes">
 <h2>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">¶</a></h2>
-<p>A pipe is a small kernel buﬀer exposed to processes as a pair of file descriptors,one for reading and one for writing. Writing data to one end of the pipe makes thatdata available for reading from the other end of the pipe. Pipes provide a way forprocesses to communicate.</p>
+<p>A pipe is a small kernel buffer exposed to processes as a pair of file descriptors,one for reading and one for writing. Writing data to one end of the pipe makes thatdata available for reading from the other end of the pipe. Pipes provide a way forprocesses to communicate.</p>
 <p>The following example code runs the program wc with standard input connectedto the read end of a pipe.</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
@@ -358,7 +396,7 @@ child: exiting
 <div class="highlight-python"><div class="highlight"><pre>echo hello world &gt;/tmp/xyz; wc &lt;/tmp/xyz
 </pre></div>
 </div>
-<p>There are at least three key diﬀerences between pipes and temporary files. First, pipesautomatically clean themselves up; with the file redirection, a shell would have to becareful to remove /tmp/xyz when done. Second, pipes can pass arbitrarily longstreams of data, while file redirection requires enough free space on disk to store allthe data. Third, pipes allow for synchronization: two processes can use a pair of pipesto send messages back and forth to each other, with each read blocking its calling process until the other process has sent data with write.</p>
+<p>There are at least three key differences between pipes and temporary files. First, pipesautomatically clean themselves up; with the file redirection, a shell would have to becareful to remove /tmp/xyz when done. Second, pipes can pass arbitrarily longstreams of data, while file redirection requires enough free space on disk to store allthe data. Third, pipes allow for synchronization: two processes can use a pair of pipesto send messages back and forth to each other, with each read blocking its calling process until the other process has sent data with write.</p>
 </div>
 <div class="section" id="file-system">
 <h2>File system<a class="headerlink" href="#file-system" title="Permalink to this headline">¶</a></h2>
@@ -415,7 +453,7 @@ child: exiting
 <h2>Real world<a class="headerlink" href="#real-world" title="Permalink to this headline">¶</a></h2>
 <p>Unix’s combination of the ‘‘standard’’ file descriptors, pipes, and convenient shellsyntax for operations on them was a major advance in writing general-purposereusable programs. The idea sparked a whole culture of ‘‘software tools’’ that was responsible for much of Unix’s power and popularity, and the shell was the first so-called‘‘scripting language.’’ The Unix system call interface persists today in systems like BSD,Linux, and Mac OS X.</p>
 <p>Modern kernels provide many more system calls, and many more kinds of kernelservices, than xv6. For the most part, modern Unix-derived operating systems havenot followed the early Unix model of exposing devices as special files, like the consoledevice file discussed above. The authors of Unix went on to build Plan 9, which applied the ‘‘resources are files’’ concept to modern facilities, representing networks,graphics, and other resources as files or file trees.</p>
-<p>The file system abstraction has been a powerful idea, most recently applied tonetwork resources in the form of the World Wide Web. Even so, there are other models for operating system interfaces. Multics, a predecessor of Unix, abstracted file storage in a way that made it look like memory, producing a very diﬀerent ﬂavor of interface. The complexity of the Multics design had a direct inﬂuence on the designers ofUnix, who tried to build something simpler.</p>
+<p>The file system abstraction has been a powerful idea, most recently applied tonetwork resources in the form of the World Wide Web. Even so, there are other models for operating system interfaces. Multics, a predecessor of Unix, abstracted file storage in a way that made it look like memory, producing a very different ﬂavor of interface. The complexity of the Multics design had a direct inﬂuence on the designers ofUnix, who tried to build something simpler.</p>
 <p>This book examines how xv6 implements its Unix-like interface, but the ideas andconcepts apply to more than just Unix. Any operating system must multiplex processes onto the underlying hardware, isolate processes from each other, and provide mechanisms for controlled interprocess communication. After studying xv6, you should beable to look at other, more complex operating systems and see the concepts underlying xv6 in those systems as well.</p>
 </div>
 </div>

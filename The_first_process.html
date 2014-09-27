@@ -29,7 +29,7 @@
 
   
     <link rel="top" title="xv6 0 documentation" href="index.html"/>
-        <link rel="next" title="&lt;no title&gt;" href="Page_tables.html"/>
+        <link rel="next" title="Chapter 2 Page tables" href="Page_tables.html"/>
         <link rel="prev" title="Chapter 0 Operating system interfaces" href="Operating_system_interfaces.html"/> 
 
   
@@ -74,6 +74,56 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-first-system-call-exec">The first system call: exec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#real-world">Real world</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Page_tables.html">Chapter 2 Page tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#paging-hardware">Paging hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#process-address-space">Process address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-creating-an-address-space">Code: creating an address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#physical-memory-allocation">Physical memory allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-physical-memory-allocator">Code: Physical memory allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#user-part-of-an-address-space">User part of an address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-exec">Code: exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Traps_interrupts_and_drivers.html">Chapter 3 Traps, interrupts, and drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#systems-calls-exceptions-and-interrupts">Systems calls, exceptions, and interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#x86-protection">X86 protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-the-first-system-call">Code: The first system call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-assembly-trap-handlers">Code: Assembly trap handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-c-trap-handler">Code: C trap handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-system-calls">Code: System calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-interrupts">Code: Interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#drivers">Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-disk-driver">Code: Disk driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Locking.html">Chapter 4 Locking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#race-conditions">Race conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#code-locks">Code: Locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#modularity-and-recursive-locks">Modularity and recursive locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#code-using-locks">Code: Using locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#lock-ordering">Lock ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#interrupt-handlers">Interrupt handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#memory-ordering">Memory ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Scheduling.html">Chapter 5 Scheduling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#multiplexing">Multiplexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-context-switching">Code: Context switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-scheduling">Code: Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#sleep-and-wakeup">Sleep and wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-sleep-and-wakeup">Code: Sleep and wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-pipes">Code: Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-wait-exit-and-kill">Code: Wait, exit, and kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#exercises">Exercises</a></li>
 </ul>
 </li>
 </ul>
@@ -126,7 +176,7 @@
 <p class="caption">Figure 1-1. Layout of a virtual address space</p>
 </div>
 <p>Each process has a thread of execution (or thread for short) that executes theprocess’s instructions. A thread can be suspended and later resumed. To switch transparently between processes, the kernel suspends the currently running thread and resumes another process’s thread. Much of the state of a thread (local variables, functioncall return addresses) is stored on the thread’s stacks. Each process has two stacks: auser stack and a kernel stack (p-&gt;kstack).</p>
-<p>When the process is executing user instructions, only its user stack is in use, and its kernel stack is empty. When the process enters the kernel (via a system call or interrupt), the kernel code executes on theprocess’s kernel stack; while a process is in the kernel, its user stack still contains saveddata, but isn’t actively used. A process’s thread alternates between actively using theuser stack and the kernel stack. The kernel stack is separate (and protected from usercode) so that the kernel can execute even if a process has wrecked its user stack.When a process makes a system call, the processor switches to the kernel stack,raises the hardware privilege level, and starts executing the kernel instructions that implement the system call. When the system call completes, the kernel returns to userspace: the hardware lowers its privilege level, switches back to the user stack, and resumes executing user instructions just after the system call instruction. A process’sthread can ‘‘block’’ in the kernel to wait for I/O, and resume where it left oﬀ when theI/O has finished.</p>
+<p>When the process is executing user instructions, only its user stack is in use, and its kernel stack is empty. When the process enters the kernel (via a system call or interrupt), the kernel code executes on theprocess’s kernel stack; while a process is in the kernel, its user stack still contains saveddata, but isn’t actively used. A process’s thread alternates between actively using theuser stack and the kernel stack. The kernel stack is separate (and protected from usercode) so that the kernel can execute even if a process has wrecked its user stack.When a process makes a system call, the processor switches to the kernel stack,raises the hardware privilege level, and starts executing the kernel instructions that implement the system call. When the system call completes, the kernel returns to userspace: the hardware lowers its privilege level, switches back to the user stack, and resumes executing user instructions just after the system call instruction. A process’sthread can ‘‘block’’ in the kernel to wait for I/O, and resume where it left off when theI/O has finished.</p>
 <p>p-&gt;state indicates whether the process is allocated, ready to run, running, waiting for I/O, or exiting.</p>
 <p>p-&gt;pgdir holds the process’s page table, in the format that the x86 hardware expects. xv6 causes the paging hardware to use a process’s p-&gt;pgdir when executingthat process. A process’s page table also serves as the record of the addresses of thephysical pages allocated to store the process’s memory.</p>
 </div>
@@ -166,7 +216,7 @@
 <h2>Code: Running the first process<a class="headerlink" href="#code-running-the-first-process" title="Permalink to this headline">¶</a></h2>
 <p>Now that the first process’s state is prepared, it is time to run it. After main callsuserinit, mpmain calls scheduler to start running processes (1267). Scheduler (2458)looks for a process with p-&gt;state set to RUNNABLE, and there’s only one: initproc. Itsets the per-cpu variable proc to the process it found and calls switchuvm to tell thehardware to start using the target process’s page table (1768). Changing page tableswhile executing in the kernel works because setupkvm causes all processes’ page tablesto have identical mappings for kernel code and data. switchuvm also sets up a taskstate segment SEG_TSS that instructs the hardware execute system calls and interruptson the process’s kernel stack. We will reexamine the task state segment in Chapter 3.</p>
 <p>scheduler now sets p-&gt;state to RUNNING and calls swtch (2708) to perform acontext switch to the target process’s kernel thread. swtch saves the current registersand loads the saved registers of the target kernel thread (proc-&gt;context) into the x86hardware registers, including the stack pointer and instruction pointer. The currentcontext is not a process but rather a special per-cpu scheduler context, so schedulertells swtch to save the current hardware registers in per-cpu storage (cpu-&gt;sched-uler) rather than in any process’s kernel thread context. We’ll examine swtch in moredetail in Chapter 5. The final ret instruction (2727) pops the target process’s %eipfrom the stack, finishing the context switch. Now the processor is running on the kernel stack of process p.</p>
-<p>Allocproc set initproc’s p-&gt;context-&gt;eip to forkret, so the ret starts exe-cuting forkret. On the first invocation (that is this one), forkret (2533) runs initialization functions that cannot be run from main because they must be run in the context of a regular process with its own kernel stack. Then, forkret returns. Allocprocarranged that the top word on the stack after p-&gt;context is popped oﬀ would betrapret, so now trapret begins executing, with %esp set to p-&gt;tf. Trapret (3027)uses pop instructions to restore registers from the trap frame (0602) just as swtch didwith the kernel context: popal restores the general registers, then the popl instructions restore %gs, %fs, %es, and %ds. The addl skips over the two fields trapno anderrcode. Finally, the iret instruction pops %cs, %eip, %flags, %esp, and %ss fromthe stack. The contents of the trap frame have been transferred to the CPU state, so the processor continues at the %eip specified in the trap frame. For initproc, thatmeans virtual address zero, the first instruction of initcode.S.</p>
+<p>Allocproc set initproc’s p-&gt;context-&gt;eip to forkret, so the ret starts exe-cuting forkret. On the first invocation (that is this one), forkret (2533) runs initialization functions that cannot be run from main because they must be run in the context of a regular process with its own kernel stack. Then, forkret returns. Allocprocarranged that the top word on the stack after p-&gt;context is popped off would betrapret, so now trapret begins executing, with %esp set to p-&gt;tf. Trapret (3027)uses pop instructions to restore registers from the trap frame (0602) just as swtch didwith the kernel context: popal restores the general registers, then the popl instructions restore %gs, %fs, %es, and %ds. The addl skips over the two fields trapno anderrcode. Finally, the iret instruction pops %cs, %eip, %flags, %esp, and %ss fromthe stack. The contents of the trap frame have been transferred to the CPU state, so the processor continues at the %eip specified in the trap frame. For initproc, thatmeans virtual address zero, the first instruction of initcode.S.</p>
 <p>At this point, %eip holds zero and %esp holds 4096. These are virtual addressesin the process’s address space. The processor’s paging hardware translates them intophysical addresses. allocuvm set up the process’s page table so that virtual addresszero refers to the physical memory allocated for this process, and set a ﬂag (PTE_U)that tells the paging hardware to allow user code to access that memory. The fact thatuserinit (2264) set up the low bits of %cs to run the process’s user code at CPL=3means that the user code can only use pages with PTE_U set, and cannot modify sensitive hardware registers such as %cr3. So the process is constrained to using only itsown memory.</p>
 </div>
 <div class="section" id="the-first-system-call-exec">
@@ -196,7 +246,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Page_tables.html" class="btn btn-neutral float-right" title="&lt;no title&gt;"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Page_tables.html" class="btn btn-neutral float-right" title="Chapter 2 Page tables"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Operating_system_interfaces.html" class="btn btn-neutral" title="Chapter 0 Operating system interfaces"><span class="fa fa-arrow-circle-left"></span> Previous</a>

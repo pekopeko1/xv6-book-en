@@ -12,9 +12,9 @@ Chapter 0 Operating system interfaces
 
 The job of an operating system is to share a computer among multiple programsand to provide a more useful set of services than the hardware alone supports. Theoperating system manages and abstracts the low-level hardware, so that, for example, aword processor need not concern itself with which type of disk hardware is beingused. It also multiplexes the hardware, allowing many programs to share the computerand run (or appear to run) at the same time. Finally, operating systems provide controlled ways for programs to interact, so that they can share data or work together.
 
-An operating system provides services to user programs through an interface.Designing a good interface turns out to be diﬃcult. On the one hand, we would likethe interface to be simple and narrow because that makes it easier to get the implementation right. On the other hand, we may be tempted to oﬀer many sophisticatedfeatures to applications. The trick in resolving this tension is to design interfaces thatrely on a few mechanisms that can be combined to provide much generality.
+An operating system provides services to user programs through an interface.Designing a good interface turns out to be difficult. On the one hand, we would likethe interface to be simple and narrow because that makes it easier to get the implementation right. On the other hand, we may be tempted to offer many sophisticatedfeatures to applications. The trick in resolving this tension is to design interfaces thatrely on a few mechanisms that can be combined to provide much generality.
 
-This book uses a single operating system as a concrete example to illustrate operating system concepts. That operating system, xv6, provides the basic interfaces introduced by Ken Thompson and Dennis Ritchie’s Unix operating system, as well as mimicking Unix’s internal design. Unix provides a narrow interface whose mechanismscombine well, oﬀering a surprising degree of generality. This interface has been sosuccessful that modern operating systems—BSD, Linux, Mac OS X, Solaris, and even,to a lesser extent, Microsoft Windows—have Unix-like interfaces. Understanding xv6is a good start toward understanding any of these systems and many others.
+This book uses a single operating system as a concrete example to illustrate operating system concepts. That operating system, xv6, provides the basic interfaces introduced by Ken Thompson and Dennis Ritchie’s Unix operating system, as well as mimicking Unix’s internal design. Unix provides a narrow interface whose mechanismscombine well, offering a surprising degree of generality. This interface has been sosuccessful that modern operating systems—BSD, Linux, Mac OS X, Solaris, and even,to a lesser extent, Microsoft Windows—have Unix-like interfaces. Understanding xv6is a good start toward understanding any of these systems and many others.
 
 As shown in Figure 0-1, xv6 takes the traditional form of a kernel, a special program that provides services to running programs. Each running program, called aprocess, has memory containing instructions, data, and a stack. The instructions implement the program’s computation. The data are the variables on which the computation acts. The stack organizes the program’s procedure calls.
 
@@ -22,7 +22,7 @@ When a process needs to invoke a kernel service, it invokes a procedure call int
 
 The kernel uses the CPU’s hardware protection mechanisms to ensure that eachprocess executing in user space can access only its own memory. The kernel executeswith the hardware privileges required to implement these protections; user programsexecute without those privileges. When a user program invokes a system call, thehardware raises the privilege level and starts executing a prearranged function in thekernel.
 
-The collection of system calls that a kernel provides is the interface that user programs see. The xv6 kernel provides a subset of the services and system calls that Unixkernels traditionally oﬀer. The calls are:
+The collection of system calls that a kernel provides is the interface that user programs see. The xv6 kernel provides a subset of the services and system calls that Unixkernels traditionally offer. The calls are:
 
 .. figure:: F0-1.png
 
@@ -96,7 +96,7 @@ might come out in either order, depending on whether the parent or child gets to
     parent: child 1234 is done
 
 
-Note that the parent and child were executing with diﬀerent memory and diﬀerentregisters: changing a variable in one does not aﬀect the other.
+Note that the parent and child were executing with different memory and differentregisters: changing a variable in one does not affect the other.
 
 The exec system call replaces the calling process’s memory with a new memoryimage loaded from a file stored in the file system. The file must have a particular format, which specifies which part of the file holds instructions, which part is data, atwhich instruction to start, etc. xv6 uses the ELF format, which Chapter 2 discusses inmore detail. When exec succeeds, it does not return to the calling program; instead,the instructions loaded from the file start executing at the entry point declared in theELF header. Exec takes two arguments: the name of the file containing the executableand an array of string arguments. For example:
 
@@ -120,13 +120,13 @@ Xv6 does not provide a notion of users or of protecting one user from another; i
 I/O and File descriptors
 =========================
 
-A file descriptor is a small integer representing a kernel-managed object thata process may read from or write to. A process may obtain a file descriptor by opening a file, directory, or device, or by creating a pipe, or by duplicating an existing descriptor. For simplicity we’ll often refer to the object a file descriptor refers to as a‘‘file’’; the file descriptor interface abstracts away the diﬀerences between files, pipes,and devices, making them all look like streams of bytes.
+A file descriptor is a small integer representing a kernel-managed object thata process may read from or write to. A process may obtain a file descriptor by opening a file, directory, or device, or by creating a pipe, or by duplicating an existing descriptor. For simplicity we’ll often refer to the object a file descriptor refers to as a‘‘file’’; the file descriptor interface abstracts away the differences between files, pipes,and devices, making them all look like streams of bytes.
 
 Internally, the xv6 kernel uses the file descriptor as an index into a perprocess table, so that every process has a private space of file descriptors starting at zero. Byconvention, a process reads from file descriptor 0 (standard input), writes output to filedescriptor 1 (standard output), and writes error messages to file descriptor 2 (standarderror). As we will see, the shell exploits the convention to implement I/O redirectionand pipelines. The shell ensures that it always has three file descriptors open (8007),which are by default file descriptors for the console.
 
-The read and write system calls read bytes from and write bytes to open filesnamed by file descriptors. The call read(fd, buf, n) reads at most n bytes from the file descriptor fd, copies them into buf, and returns the number of bytes read. Eachfile descriptor that refers to a file has an oﬀset associated with it. Read reads datafrom the current file oﬀset and then advances that oﬀset by the number of bytes read:a subsequent read will return the bytes following the ones returned by the first read.When there are no more bytes to read, read returns zero to signal the end of the file.
+The read and write system calls read bytes from and write bytes to open filesnamed by file descriptors. The call read(fd, buf, n) reads at most n bytes from the file descriptor fd, copies them into buf, and returns the number of bytes read. Eachfile descriptor that refers to a file has an offset associated with it. Read reads datafrom the current file offset and then advances that offset by the number of bytes read:a subsequent read will return the bytes following the ones returned by the first read.When there are no more bytes to read, read returns zero to signal the end of the file.
 
-The call write(fd, buf, n) writes n bytes from buf to the file descriptor fd andreturns the number of bytes written. Fewer than n bytes are written only when an error occurs. Like read, write writes data at the current file oﬀset and then advancesthat oﬀset by the number of bytes written: each write picks up where the previousone left oﬀ.
+The call write(fd, buf, n) writes n bytes from buf to the file descriptor fd andreturns the number of bytes written. Fewer than n bytes are written only when an error occurs. Like read, write writes data at the current file offset and then advancesthat offset by the number of bytes written: each write picks up where the previousone left off.
 
 The following program fragment (which forms the essence of cat) copies datafrom its standard input to its standard output. If an error occurs, it writes a messageto the standard error.
 
@@ -172,7 +172,7 @@ After the child closes file descriptor 0, open is guaranteed to use that file de
 
 The code for I/O redirection in the xv6 shell works in exactly this way (7930). Recall that at this point in the code the shell has already forked the child shell and thatruncmd will call exec to load the new program. Now it should be clear why it is agood idea that fork and exec are separate calls. This separation allows the shell to fixup the child process before the child runs the intended program.
 
-Although fork copies the file descriptor table, each underlying file oﬀset is sharedbetween parent and child. Consider this example:
+Although fork copies the file descriptor table, each underlying file offset is sharedbetween parent and child. Consider this example:
 
 .. code-block:: c
 
@@ -185,9 +185,9 @@ Although fork copies the file descriptor table, each underlying file oﬀset is 
     }
 
 
-At the end of this fragment, the file attached to file descriptor 1 will contain the datahello world. The write in the parent (which, thanks to wait, runs only after thechild is done) picks up where the child’s write left oﬀ. This behavior helps producesequential output from sequences of shell commands, like (echo hello; echo world)>output.txt.
+At the end of this fragment, the file attached to file descriptor 1 will contain the datahello world. The write in the parent (which, thanks to wait, runs only after thechild is done) picks up where the child’s write left off. This behavior helps producesequential output from sequences of shell commands, like (echo hello; echo world)>output.txt.
 
-The dup system call duplicates an existing file descriptor, returning a new one thatrefers to the same underlying I/O object. Both file descriptors share an oﬀset, just asthe file descriptors duplicated by fork do. This is another way to write hello worldinto a file:
+The dup system call duplicates an existing file descriptor, returning a new one thatrefers to the same underlying I/O object. Both file descriptors share an offset, just asthe file descriptors duplicated by fork do. This is another way to write hello worldinto a file:
 
 .. code-block:: c
 
@@ -196,14 +196,14 @@ The dup system call duplicates an existing file descriptor, returning a new one 
     write(fd, "world\n", 6);
 
 
-Two file descriptors share an oﬀset if they were derived from the same originalfile descriptor by a sequence of fork and dup calls. Otherwise file descriptors do notshare oﬀsets, even if they resulted from open calls for the same file. Dup allows shellsto implement commands like this: ls existing-file non-existing-file > tmp12>&1. The 2>&1 tells the shell to give the command a file descriptor 2 that is a duplicate of descriptor 1. Both the name of the existing file and the error message for thenon-existing file will show up in the file tmp1. The xv6 shell doesn’t support I/O redirection for the error file descriptor, but now you know how to implement it.
+Two file descriptors share an offset if they were derived from the same originalfile descriptor by a sequence of fork and dup calls. Otherwise file descriptors do notshare offsets, even if they resulted from open calls for the same file. Dup allows shellsto implement commands like this: ls existing-file non-existing-file > tmp12>&1. The 2>&1 tells the shell to give the command a file descriptor 2 that is a duplicate of descriptor 1. Both the name of the existing file and the error message for thenon-existing file will show up in the file tmp1. The xv6 shell doesn’t support I/O redirection for the error file descriptor, but now you know how to implement it.
 
 File descriptors are a powerful abstraction, because they hide the details of whatthey are connected to: a process writing to file descriptor 1 may be writing to a file, toa device like the console, or to a pipe.
 
 Pipes
 ======
 
-A pipe is a small kernel buﬀer exposed to processes as a pair of file descriptors,one for reading and one for writing. Writing data to one end of the pipe makes thatdata available for reading from the other end of the pipe. Pipes provide a way forprocesses to communicate.
+A pipe is a small kernel buffer exposed to processes as a pair of file descriptors,one for reading and one for writing. Writing data to one end of the pipe makes thatdata available for reading from the other end of the pipe. Pipes provide a way forprocesses to communicate.
 
 The following example code runs the program wc with standard input connectedto the read end of a pipe.
 
@@ -247,7 +247,7 @@ could be implemented without pipes as
     echo hello world >/tmp/xyz; wc </tmp/xyz
 
 
-There are at least three key diﬀerences between pipes and temporary files. First, pipesautomatically clean themselves up; with the file redirection, a shell would have to becareful to remove /tmp/xyz when done. Second, pipes can pass arbitrarily longstreams of data, while file redirection requires enough free space on disk to store allthe data. Third, pipes allow for synchronization: two processes can use a pair of pipesto send messages back and forth to each other, with each read blocking its calling process until the other process has sent data with write.
+There are at least three key differences between pipes and temporary files. First, pipesautomatically clean themselves up; with the file redirection, a shell would have to becareful to remove /tmp/xyz when done. Second, pipes can pass arbitrarily longstreams of data, while file redirection requires enough free space on disk to store allthe data. Third, pipes allow for synchronization: two processes can use a pair of pipesto send messages back and forth to each other, with each read blocking its calling process until the other process has sent data with write.
 
 File system
 ============
@@ -331,7 +331,7 @@ Unix’s combination of the ‘‘standard’’ file descriptors, pipes, and co
 
 Modern kernels provide many more system calls, and many more kinds of kernelservices, than xv6. For the most part, modern Unix-derived operating systems havenot followed the early Unix model of exposing devices as special files, like the consoledevice file discussed above. The authors of Unix went on to build Plan 9, which applied the ‘‘resources are files’’ concept to modern facilities, representing networks,graphics, and other resources as files or file trees.
 
-The file system abstraction has been a powerful idea, most recently applied tonetwork resources in the form of the World Wide Web. Even so, there are other models for operating system interfaces. Multics, a predecessor of Unix, abstracted file storage in a way that made it look like memory, producing a very diﬀerent ﬂavor of interface. The complexity of the Multics design had a direct inﬂuence on the designers ofUnix, who tried to build something simpler.
+The file system abstraction has been a powerful idea, most recently applied tonetwork resources in the form of the World Wide Web. Even so, there are other models for operating system interfaces. Multics, a predecessor of Unix, abstracted file storage in a way that made it look like memory, producing a very different ﬂavor of interface. The complexity of the Multics design had a direct inﬂuence on the designers ofUnix, who tried to build something simpler.
 
 This book examines how xv6 implements its Unix-like interface, but the ideas andconcepts apply to more than just Unix. Any operating system must multiplex processes onto the underlying hardware, isolate processes from each other, and provide mechanisms for controlled interprocess communication. After studying xv6, you should beable to look at other, more complex operating systems and see the concepts underlying xv6 in those systems as well.
 
