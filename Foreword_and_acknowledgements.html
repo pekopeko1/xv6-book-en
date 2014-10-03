@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; xv6 0 documentation</title>
+  <title>Foreword and acknowledgements &mdash; xv6 0 documentation</title>
   
 
   
@@ -57,10 +57,105 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Foreword and acknowledgements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operating_system_interfaces.html">Chapter 0 Operating system interfaces</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#processes-and-memory">Processes and memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#i-o-and-file-descriptors">I/O and File descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#pipes">Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#file-system">File system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#real-world">Real world</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="The_first_process.html">Chapter 1 The first process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#process-overview">Process overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-the-first-address-space">Code: the first address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-creating-the-first-process">Code: creating the first process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-running-the-first-process">Code: Running the first process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#the-first-system-call-exec">The first system call: exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Page_tables.html">Chapter 2 Page tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#paging-hardware">Paging hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#process-address-space">Process address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-creating-an-address-space">Code: creating an address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#physical-memory-allocation">Physical memory allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-physical-memory-allocator">Code: Physical memory allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#user-part-of-an-address-space">User part of an address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-exec">Code: exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Traps_interrupts_and_drivers.html">Chapter 3 Traps, interrupts, and drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#systems-calls-exceptions-and-interrupts">Systems calls, exceptions, and interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#x86-protection">X86 protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-the-first-system-call">Code: The first system call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-assembly-trap-handlers">Code: Assembly trap handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-c-trap-handler">Code: C trap handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-system-calls">Code: System calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-interrupts">Code: Interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#drivers">Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-disk-driver">Code: Disk driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Locking.html">Chapter 4 Locking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#race-conditions">Race conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#code-locks">Code: Locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#modularity-and-recursive-locks">Modularity and recursive locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#code-using-locks">Code: Using locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#lock-ordering">Lock ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#interrupt-handlers">Interrupt handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#memory-ordering">Memory ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Scheduling.html">Chapter 5 Scheduling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#multiplexing">Multiplexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-context-switching">Code: Context switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-scheduling">Code: Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#sleep-and-wakeup">Sleep and wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-sleep-and-wakeup">Code: Sleep and wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-pipes">Code: Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-wait-exit-and-kill">Code: Wait, exit, and kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="File_system.html">Chapter 6 File system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#buffer-cache-layer">Buffer cache Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-buffer-cache">Code: Buffer cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#logging-layer">Logging layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#log-design">Log design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-logging">Code: logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-block-allocator">Code: Block allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#inodes">Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-inodes">Code: Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-inode-content">Code: Inode content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-directory-layer">Code: directory layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-path-names">Code: Path names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#file-descriptor-layer">File descriptor layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-system-calls">Code: System calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PC_hardware.html">Appendix A PC hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PC_hardware.html#processor-and-memory">Processor and memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PC_hardware.html#i-o">I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="The_boot_loader.html">Appendix B The boot loader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="The_boot_loader.html#code-assembly-bootstrap">Code: Assembly bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_boot_loader.html#code-c-bootstrap">Code: C bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_boot_loader.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_boot_loader.html#exercises">Exercises</a></li>
 </ul>
 </li>
 </ul>
@@ -86,7 +181,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>&lt;no title&gt;</li>
+    <li>Foreword and acknowledgements</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/Foreword_and_acknowledgements.txt" rel="nofollow"> View page source</a>
@@ -97,7 +192,13 @@
 </div>
           <div role="main">
             
-  
+  <div class="section" id="foreword-and-acknowledgements">
+<h1>Foreword and acknowledgements<a class="headerlink" href="#foreword-and-acknowledgements" title="Permalink to this headline">¶</a></h1>
+<p>This is a draft text intended for a class on operating systems. It explains the main concepts of operating systems by studying an example kernel, named xv6. xv6 is a re-implementation of Dennis Ritchie’s and Ken Thompson’s Unix Version 6 (v6). xv6 loosely follows the structure and style of v6, but is implemented in ANSI C for an x86-based multiprocessor.</p>
+<p>The text should be read along with the source code for xv6. This approach is inspired by John Lions’s Commentary on UNIX 6th Edition (Peer to Peer Communications; ISBN: 1-57398-013-7; 1st edition (June 14, 2000)). See <a class="reference external" href="http://pdos.csail.mit.edu/6.828">http://pdos.csail.mit.edu/6.828</a> for pointers to on-line resources for v6 and xv6.</p>
+<p>We have used this text in 6.828, the operating system class at MIT. We thank the faculty, TAs, and students of 6.828 who all directly or indirectly contributed to xv6. In particular, we would like to thank Austin Clements and Nickolai Zeldovich.</p>
+</div>
+
 
           </div>
           <footer>

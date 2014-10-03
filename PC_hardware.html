@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; xv6 0 documentation</title>
+  <title>Appendix A PC hardware &mdash; xv6 0 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
 
   
     <link rel="top" title="xv6 0 documentation" href="index.html"/>
-        <link rel="next" title="&lt;no title&gt;" href="The_boot_loader.html"/>
-        <link rel="prev" title="&lt;no title&gt;" href="File_system.html"/> 
+        <link rel="next" title="Appendix B The boot loader" href="The_boot_loader.html"/>
+        <link rel="prev" title="Chapter 6 File system" href="File_system.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -57,10 +57,105 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Foreword_and_acknowledgements.html">Foreword and acknowledgements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operating_system_interfaces.html">Chapter 0 Operating system interfaces</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#processes-and-memory">Processes and memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#i-o-and-file-descriptors">I/O and File descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#pipes">Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#file-system">File system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Operating_system_interfaces.html#real-world">Real world</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="The_first_process.html">Chapter 1 The first process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#process-overview">Process overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-the-first-address-space">Code: the first address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-creating-the-first-process">Code: creating the first process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#code-running-the-first-process">Code: Running the first process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#the-first-system-call-exec">The first system call: exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_first_process.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Page_tables.html">Chapter 2 Page tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#paging-hardware">Paging hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#process-address-space">Process address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-creating-an-address-space">Code: creating an address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#physical-memory-allocation">Physical memory allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-physical-memory-allocator">Code: Physical memory allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#user-part-of-an-address-space">User part of an address space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#code-exec">Code: exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Page_tables.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Traps_interrupts_and_drivers.html">Chapter 3 Traps, interrupts, and drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#systems-calls-exceptions-and-interrupts">Systems calls, exceptions, and interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#x86-protection">X86 protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-the-first-system-call">Code: The first system call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-assembly-trap-handlers">Code: Assembly trap handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-c-trap-handler">Code: C trap handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-system-calls">Code: System calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-interrupts">Code: Interrupts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#drivers">Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#code-disk-driver">Code: Disk driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Traps_interrupts_and_drivers.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Locking.html">Chapter 4 Locking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#race-conditions">Race conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#code-locks">Code: Locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#modularity-and-recursive-locks">Modularity and recursive locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#code-using-locks">Code: Using locks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#lock-ordering">Lock ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#interrupt-handlers">Interrupt handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#memory-ordering">Memory ordering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Locking.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Scheduling.html">Chapter 5 Scheduling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#multiplexing">Multiplexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-context-switching">Code: Context switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-scheduling">Code: Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#sleep-and-wakeup">Sleep and wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-sleep-and-wakeup">Code: Sleep and wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-pipes">Code: Pipes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#code-wait-exit-and-kill">Code: Wait, exit, and kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scheduling.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="File_system.html">Chapter 6 File system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#buffer-cache-layer">Buffer cache Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-buffer-cache">Code: Buffer cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#logging-layer">Logging layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#log-design">Log design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-logging">Code: logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-block-allocator">Code: Block allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#inodes">Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-inodes">Code: Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-inode-content">Code: Inode content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-directory-layer">Code: directory layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-path-names">Code: Path names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#file-descriptor-layer">File descriptor layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#code-system-calls">Code: System calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="File_system.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Appendix A PC hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#processor-and-memory">Processor and memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-o">I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="The_boot_loader.html">Appendix B The boot loader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="The_boot_loader.html#code-assembly-bootstrap">Code: Assembly bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_boot_loader.html#code-c-bootstrap">Code: C bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_boot_loader.html#real-world">Real world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="The_boot_loader.html#exercises">Exercises</a></li>
 </ul>
 </li>
 </ul>
@@ -86,7 +181,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>&lt;no title&gt;</li>
+    <li>Appendix A PC hardware</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/PC_hardware.txt" rel="nofollow"> View page source</a>
@@ -97,17 +192,74 @@
 </div>
           <div role="main">
             
-  
+  <div class="section" id="appendix-a-pc-hardware">
+<h1>Appendix A PC hardware<a class="headerlink" href="#appendix-a-pc-hardware" title="Permalink to this headline">¶</a></h1>
+<p>This appendix describes personal computer (PC) hardware, the platform on whichxv6 runs.</p>
+<p>A PC is a computer that adheres to several industry standards, with the goal thata given piece of software can run on PCs sold by multiple vendors. These standardsevolve over time and a PC from 1990s doesn’t look like a PC now.</p>
+<p>From the outside a PC is a box with a keyboard, a screen, and various devices(e.g., CD-rom, etc.). Inside the box is a circuit board (the ‘‘motherboard’’) with CPUchips, memory chips, graphic chips, I/O controller chips, and busses through which thechips communicate. The busses adhere to standard protocols (e.g., PCI and USB) sothat devices will work with PCs from multiple vendors.</p>
+<p>From our point of view, we can abstract the PC into three components: CPU,memory, and input/output (I/O) devices. The CPU performs computation, the memory contains instructions and data for that computation, and devices allow the CPU tointeract with hardware for storage, communication, and other functions.</p>
+<p>You can think of main memory as connected to the CPU with a set of wires, orlines, some for address bits, some for data bits, and some for control flags. To read avalue from main memory, the CPU sends high or low voltages representing 1 or 0 bitson the address lines and a 1 on the ‘‘read’’ line for a prescribed amount of time andthen reads back the value by interpreting the voltages on the data lines. To write avalue to main memory, the CPU sends appropriate bits on the address and data linesand a 1 on the ‘‘write’’ line for a prescribed amount of time. Real memory interfacesare more complex than this, but the details are only important if you need to achievehigh performance.</p>
+<div class="section" id="processor-and-memory">
+<h2>Processor and memory<a class="headerlink" href="#processor-and-memory" title="Permalink to this headline">¶</a></h2>
+<p>A computer’s CPU (central processing unit, or processor) runs a conceptually simple loop: it consults an address in a register called the program counter, reads a machine instruction from that address in memory, advances the program counter past theinstruction, and executes the instruction. Repeat. If the execution of the instructiondoes not modify the program counter, this loop will interpret the memory pointed atby the program counter as a sequence of machine instructions to run one after theother. Instructions that do change the program counter include branches and functioncalls.</p>
+<p>The execution engine is useless without the ability to store and modify programdata. The fastest storage for data is provided by the processor’s register set. A registeris a storage cell inside the processor itself, capable of holding a machine word-sizedvalue (typically 16, 32, or 64 bits). Data stored in registers can typically be read or written quickly, in a single CPU cycle.</p>
+<p>PCs have a processor that implements the x86 instruction set, which was originally deﬁned by Intel and has become a standard. Several manufacturers produce processors that implement the instruction set. Like all other PC standards, this standard isalso evolving but newer standards are backwards compatible with past standards. Theboot loader has to deal with some of this evolution because every PC processor startssimulating an Intel 8088, the CPU chip in the original IBM PC released in 1981.However, for most of xv6 you will be concerned with the modern x86 instruction set.</p>
+<p>The modern x86 provides eight general purpose 32-bit registers—%eax,%ebx,%ecx,%edx,%edi,%esi,%ebp, and %esp—and a program counter %eip (the ‘ instruction pointer). The common epreﬁx stands for extended, as these are 32-bitextensions of the 16-bit registers %ax,%bx,%cx,%dx,%di,%si,%bp,%sp, and %ip. Thetwo register sets are aliased so that, for example, %ax is the bottom half of %eax: writing to %ax changes the value stored in %eax and vice versa. The ﬁrst four registersalso have names for the bottom two 8-bit bytes: %al and %ah denote the low and high8 bits of %ax;%bl,%bh,%cl,%ch,%dl, and %dh continue the pattern. In addition tothese registers, the x86 has eight 80-bit floating-point registers as well as a handful ofspecial-purpose registers like the control registers %cr0,%cr2,%cr3, and %cr4; thedebug registers %dr0,%dr1,%dr2, and %dr3; the segment registers %cs,%ds,%es,%fs,%gs, and %ss; and the global and local descriptor table pseudo-registers %gdtrand %ldtr. The control registers and segment registers are important to any operatingsystem. The floating-point and debug registers are less interesting and not used by xv6.</p>
+<p>Registers are fast but expensive. Most processors provide at most a few tens ofgeneral-purpose registers. The next conceptual level of storage is the main random-access memory (RAM). Main memory is 10-100x slower than a register, but it is muchcheaper, so there can be more of it. One reason main memory is relatively slow is thatit is physically separate from the processor chip. An x86 processor has a few dozenregisters, but a typical PC today has gigabytes of main memory. Because of the enormous differences in both access speed and size between registers and main memory,most processors, including the x86, store copies of recently-accessed sections of mainmemory in on-chip cache memory. The cache memory serves as a middle ground between registers and memory both in access time and in size. Today’s x86 processorstypically have two levels of cache, a small ﬁrst-level cache with access times relativelyclose to the processor’s clock rate and a larger second-level cache with access times inbetween the ﬁrst-level cache and main memory. This table shows actual numbers foran Intel Core 2 Duo system:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="32%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="3">Intel Core 2 Duo E7200 at 2.53 GHz</th>
+</tr>
+<tr class="row-even"><th class="head" colspan="3">TODO: Plug in non-made-up numbers!</th>
+</tr>
+<tr class="row-odd"><th class="head">storage</th>
+<th class="head">access time</th>
+<th class="head">size</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>register</td>
+<td>0.6 ns</td>
+<td>64 bytes</td>
+</tr>
+<tr class="row-odd"><td>L1 cache</td>
+<td>0.5 ns</td>
+<td>64 kilobytes</td>
+</tr>
+<tr class="row-even"><td>L2 cache</td>
+<td>10 ns</td>
+<td>4 megabytes</td>
+</tr>
+<tr class="row-odd"><td>main memory</td>
+<td>100 ns</td>
+<td>4 gigabytes</td>
+</tr>
+</tbody>
+</table>
+<p>For the most part, x86 processors hide the cache from the operating system, so wecan think of the processor as having just two kinds of storage—registers and memory—and not worry about the distinctions between the different levels of the memoryhierarchy.</p>
+</div>
+<div class="section" id="i-o">
+<h2>I/O<a class="headerlink" href="#i-o" title="Permalink to this headline">¶</a></h2>
+<p>Processors must communicate with devices as well as memory. The x86 processorprovides special in and out instructions that read and write values from device addresses called I/O ports. The hardware implementation of these instructions is essentially the same as reading and writing memory. Early x86 processors had an extra address line: 0 meant read/write from an I/O port and 1 meant read/write from mainmemory. Each hardware device monitors these lines for reads and writes to its assigned range of I/O ports. A device’s ports let the software conﬁgure the device, examine its status, and cause the device to take actions; for example, software can use I/Oport reads and writes to cause the disk interface hardware to read and write sectors onthe disk.</p>
+<p>Many computer architectures have no separate device access instructions. Insteadthe devices have ﬁxed memory addresses and the processor communicates with thedevice (at the operating system’s behest) by reading and writing values at those addresses. In fact, modern x86 architectures use this technique, called memory-mappedI/O, for most high-speed devices such as network, disk, and graphics controllers. Forreasons of backwards compatibility, though, the old in and out instructions linger, asdo legacy hardware devices that use them, such as the IDE disk controller, which xv6uses.</p>
+</div>
+</div>
+
 
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="The_boot_loader.html" class="btn btn-neutral float-right" title="&lt;no title&gt;"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="The_boot_loader.html" class="btn btn-neutral float-right" title="Appendix B The boot loader"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="File_system.html" class="btn btn-neutral" title="&lt;no title&gt;"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="File_system.html" class="btn btn-neutral" title="Chapter 6 File system"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
